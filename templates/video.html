@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>Pose Estimation-Video Upload</title>
+    {{ fontawesome_html() }}
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<script type="text/javascript">
+
+  function vidplay() {
+     var video = document.getElementById("Video1");
+     var button = document.getElementById("play");
+     if (video.paused) {
+        video.play();
+        button.innerHTML = '<span class="fas fa-stop">';
+     } else {
+        video.pause();
+        button.innerHTML = '<span class="fas fa-play">';
+     }
+  }
+
+  function restart() {
+      var video = document.getElementById("Video1");
+      video.currentTime = 0;
+  }
+
+  function skip(value) {
+      var video = document.getElementById("Video1");
+      video.currentTime += value;
+  } 
+  
+  function speedUp() { 
+    var video = document.getElementById("Video1");
+      video.playbackRate = video.playbackRate + 0.5;
+  } 
+
+  function speedDown() { 
+    var video = document.getElementById("Video1");
+    video.playbackRate = video.playbackRate - 0.5;
+
+  } 
+
+</script>
+
+  </head>
+  <body style="background-color: #9c9c9c;">
+    <div id="Main">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <div class="container">
+        <div class="navbar-collapse"  id="navbar">
+            <a class="navbar-brand" href="/">Pose Estimation</a>
+          <ul class="navbar-nav mr-5 mt-.90 ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about_us">About Us</a>
+          </li>
+        </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container  text-center my-5">
+         <h3 class="my-5" align="center">Pose Estimation (Video)</h3>
+
+      <video id="Video1" width="640" height="352" controls style="border: 6px solid rgb(46, 45, 45); border-radius: 8px;"  >
+        
+             <source src={{ url_for('static', filename="cc.mp4") }} type="video/mp4" />
+            
+        </video>
+        
+        <div class="my-4" id="buttonbar">
+            <button id="restart" class="btn btn-md btn-success mx-1" onclick="restart();"> <span class="fas fa-undo"></span></button> 
+            <button id="rew" class="btn btn-md btn-secondary mx-1" onclick="skip(-10)"><span class="fas fa-fast-backward"></span></button>
+            <button id="play" class="btn btn-md btn-primary mx-1" onclick="vidplay()"><span class="fas fa-play"></span></button>
+            <button id="fastFwd" class="btn btn-md btn-dark mx-1" onclick="skip(10)"><span class="fas fa-fast-forward"></button>
+            <button  type="button" class="btn btn-md btn-danger mx-1" onclick="speedDown()"><b>-</b></button>
+            <button  type="button" class="btn btn-md btn-info mx-1" onclick="speedUp()"><b>+</b></button>
+        </div>      
+    </div>
+   
+  </body>
+</html>

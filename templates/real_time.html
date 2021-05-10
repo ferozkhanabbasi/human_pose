@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Pose Estimation-RT</title>
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      border: 5px solid rgb(73, 68, 68);
+      border-radius: 4px;
+    }
+      </style>
+</head>
+
+<body style="background-color: #9c9c9c;">
+  <div id="Main">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+			<div class="container">
+			<div class="navbar-collapse"  id="navbar">
+					<a class="navbar-brand" href="/">Pose Estimation</a>
+				<ul class="navbar-nav mr-5 mt-.90 ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/about_us">About Us</a>
+				</li>
+			</div>
+			</div>
+		</nav>
+	</div>
+  <div class="container text-center mt-5">
+    
+<form class = "ey" method="POST" action="{{ url_for('video_feed') }}"> 
+    <h1 class="mt-4">Pose Estimation (Real Time)</h1>
+    <img id="bg" class="center mt-5" src="{{ url_for('video_feed') }}"><!-- note action -->
+    <select name="select1"> <!-- note the name -->
+        <option value="None">Select Position</option>
+        <option value="sitting">Sitting</option>
+        <option value="walking">Walking</option>
+        <option value="upright">Upright</option>
+    </select>
+ </form>
+
+
+
+
+  </div>
+
+</body>
+</html>
